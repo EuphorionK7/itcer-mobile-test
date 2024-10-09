@@ -1,0 +1,219 @@
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    /* Ensures padding and borders are included in element's total width and height */
+}
+
+
+/* Header Styles */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    background-color: #e1e2e8;
+    /* ITCER dark blue */
+    padding: 10px 20px;
+    /* border-bottom: 0.5px solid darkgray; */
+    ;
+}
+
+.itcer-logo {
+    width: 10%;
+    /* Adjust width for better scalability */
+    height: auto;
+    margin-right: 20px;
+}
+
+.page-title {
+    flex-grow: 1;
+    /* Take up remaining space */
+    color: #0d026b;
+    font-size: 25px;
+    text-align: center;
+}
+
+
+/* Upload Form Styles */
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    /* Flexible width */
+    max-width: 600px;
+    /* Limit max width for larger screens */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #aa4b03;
+    margin-top: 5%;
+    /* More reasonable spacing from top */
+}
+
+.image-preview {
+    width: 100%;
+    max-width: 400px;
+    /* Max width for larger screens */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* Maintain square */
+    border: 2px dashed #ffc004;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+    overflow: hidden;
+    /* No overflow */
+}
+
+.image-preview__image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Fit image inside box */
+}
+
+.image-preview__default-text {
+    font-size: 16px;
+    color: #999999;
+    text-align: center;
+}
+
+
+/* Button Styles */
+
+.upload-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #4ba541;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.upload-btn {
+    background-color: #4ba541;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #3d8a36;
+}
+
+.error-message {
+    color: red;
+    display: none;
+    text-align: center;
+}
+
+
+/* Loader Styles */
+
+.loader {
+    display: none;
+    margin: 20px auto;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #27357d;
+    border-right: 4px solid #4ba541;
+    border-bottom: 4px solid #b66d32;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* EXIF Data Display Styles */
+
+#exifData {
+    display: none;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+    /* Ensure it scales responsively */
+    max-width: 500px;
+    /* Set a max width */
+}
+
+#exifData h3 {
+    margin-top: 0;
+    color: #27357d;
+}
+
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .upload-container {
+        width: 90%;
+        /* Increase width for mobile */
+        margin-top: 10%;
+        /* Adjust margin for smaller screens */
+    }
+    .image-preview {
+        max-width: 300px;
+        /* Reduce size on smaller screens */
+    }
+    .upload-btn {
+        padding: 8px 16px;
+        /* Adjust padding for smaller buttons */
+    }
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        /* Center everything on small screens */
+    }
+    .itcer-logo {
+        width: 30%;
+        /* Larger logo on mobile */
+        margin-right: 0;
+        /* Remove margin for better alignment */
+        margin-bottom: 10px;
+    }
+    .page-title {
+        font-size: 20px;
+        /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-preview {
+        max-width: 250px;
+        /* Smaller images for very small screens */
+    }
+    .upload-btn {
+        padding: 6px 12px;
+        /* More compact padding */
+    }
+    .page-title {
+        font-size: 18px;
+        /* Further adjust font size */
+    }
+}

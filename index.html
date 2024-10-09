@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload & Analysis</title>
+    <link rel="stylesheet" href="static/mobilestyles.css">
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="header-container">
+            <img src="static/Logo_ITCER-cs.svg" alt="ITCER Logo" class="itcer-logo">
+
+        </div>
+    </header>
+
+    <div class="upload-container">
+        <div class="title-container">
+            <!-- Title -->
+            <h1 class="page-title">Image Analysis</h1>
+        </div>
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="image-preview" id="imagePreview">
+                <img id="imageElement" src="" alt="Image Preview" class="image-preview__image" style="display:none;">
+                <span id="imageText" class="image-preview__default-text">Tap to Select or Take Image</span>
+            </div>
+            <input type="file" name="image" id="imageUpload" accept="image/*" capture="camera" required>
+            <label for="imageUpload" class="upload-label">Upload Image</label>
+
+            <!-- EXIF Data Display Fields -->
+            <div id="exifData">
+                <h3>Extracted Data</h3>
+                <p><strong>Latitude:</strong> <span id="latitude">N/A</span></p>
+                <p><strong>Longitude:</strong> <span id="longitude">N/A</span></p>
+                <p><strong>Altitude:</strong> <span id="altitude">N/A</span></p>
+                <p><strong>Date Taken:</strong> <span id="dateTaken">N/A</span></p>
+                <p><strong>Camera Model:</strong> <span id="cameraModel">N/A</span></p>
+                <p><strong>Image Orientation:</strong> <span id="orientation">N/A</span></p>
+                <p>Go to your camera settings and enable Location Tag if coordinates are unavailable </p>
+            </div>
+
+            <!-- Error Message for Missing GPS Data -->
+            <div class="error-message" id="gpsErrorMessage">GPS data is missing. Please ensure the image has GPS coordinates.
+            </div>
+
+            <!-- Submit button and Loader -->
+            <input type="submit" value="Upload Image" class="upload-btn" id="upload-btn" style="display: none;">
+            <div class="loader" id="loader"></div>
+            <!-- Rotating loader -->
+        </form>
+    </div>
+
+    <script src="static/upload.js"></script>
+</body>
+
+</html>
